@@ -1,0 +1,29 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+df = pd.read_excel("covid.xlsx")
+df.fillna(method ='ffill', inplace = True)
+co=df.head(30)
+age=co['Age Bracket']
+g = co['Gender']
+st=co['Detected State']
+plt.scatter(g,age)
+plt.ylabel("Gender")
+plt.xlabel("Age")
+plt.title("COVID-19 Age-Gender Distribution")
+plt.show()#it will show null corelation
+#it will show that how gender and age are corelated with each other. 
+#How males or females with younger or older age are getting infected.
+plt.scatter(st,g)
+plt.xlabel("State")
+plt.ylabel("Gender")
+plt.title("COVID-19 State-Gender Distribution")
+plt.show()#it will show  null corelation
+plt.scatter(st,age)
+plt.xlabel("State")
+plt.ylabel("Age")
+plt.title("COVID-19 State-Age Distribution")
+plt.show() #it will represent the postive corelation. 
+#It will represent how in each state the aged aur younger persons are getting infected.
+
+#These all three are very very weakly corelated data because data is scattered so much that we have to scale it up.
